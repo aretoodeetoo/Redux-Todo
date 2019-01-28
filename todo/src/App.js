@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import TodoList from './components/Todo'
+
 class App extends Component {
+  state = {
+    todos: []
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <TodoList todos={this.state.todos}/>
+        <form>
+          <input type="text"></input>
+          <button onClick={() => {}}>Add a To Do Item</button>
+        </form>
       </div>
     );
   }
