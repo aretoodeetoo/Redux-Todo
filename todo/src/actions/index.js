@@ -1,0 +1,7 @@
+export const ADD_NEW_ITEM = 'ADD_NEW_ITEM';
+
+export const addNewItem = () => {
+    return{
+        type: ADD_NEW_ITEM
+    }
+}
