@@ -9,16 +9,16 @@ export function addNewTodo(newTodo){
     }
 }
 
-export function toggleCompleted(index){
+export function toggleCompleted(id){
     return{
         type: TOGGLE_COMPLETED,
-        payload: index
+        payload: id
     };
 }
 
-export function deleteTodo(index){
+export function deleteTodo(id){
     return{
         type: DELETE_ITEM,
-        payload: index
+        payload: id
     }
 }

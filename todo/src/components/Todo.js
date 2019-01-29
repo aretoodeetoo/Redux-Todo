@@ -17,14 +17,13 @@ class TodoList extends React.Component{
         this.props.addNewTodo(this.state.newTodo);
     };
 
-    toggleCompleted = (e, index) => {
+    toggleCompleted = (e, id) => {
         e.preventDefault();
-        this.props.toggleCompleted(index);
+        this.props.toggleCompleted(id);
     };
 
-    deleteTodo = (e, index) => {
-        e.preventDefault();
-        this.props.deleteTodo(index);
+    deleteTodo = (id) => {
+        this.props.deleteTodo(id);
     };
 
     render(){
@@ -32,10 +31,10 @@ class TodoList extends React.Component{
             <>
             <h2>Something To Do</h2>
             <div>
-                {this.props.todos.map((todo, index) => (
+                {this.props.todos.map((todo, id) => (
                     <>
-                    <p onClick={e => this.toggleCompleted(e, index)} key={index}>{todo.value}</p>
-                    <button onClick={e => this.deleteTodo(e, index)}>Delete This Item</button>
+                    <p onClick={e => this.toggleCompleted(e, id)} key={todo.id}>{todo.value}</p>
+                    <button onClick={() => this.deleteTodo(todo.id)}>Delete This Item</button>
                     </>
                 ))}
             </div>

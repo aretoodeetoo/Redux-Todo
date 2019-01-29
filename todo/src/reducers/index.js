@@ -10,6 +10,7 @@ const reducer = (state = initialState, action) => {
         case ADD_NEW_ITEM:
         const newTodo = {
             value: action.payload,
+            id: Date.now(),
             completed: false
         };
         return {
@@ -19,18 +20,28 @@ const reducer = (state = initialState, action) => {
         case TOGGLE_COMPLETED:
         return {
             ...state,
-            todos: state.todos.map((todo, index) => 
-            action.payload === index
+            todos: state.todos.map((todo, id) => 
+            action.payload === id
             ? {...todo, completed: !todo.completed }
             : todo
             )
         }
         case DELETE_ITEM:
-        return {todos: state.todos.filter(todo => todo.index !== action.index)}
+        return {
+            ...state,
+            todos: state.todos.filter(todo => todo.id !== action.payload)}
 
         default:
         return state;
     }
 }
+
+// store.subscribe(() => {
+//     localStorage.setItem('newTodo', JSON.stringify(store.getState()));
+// })
+
+// const persistedState = localStorage.getItem('newTodo') ? JSON.parse(localStorage.getItem('newTodo'));
+
+// export default persistedState;
 
 export default reducer;
