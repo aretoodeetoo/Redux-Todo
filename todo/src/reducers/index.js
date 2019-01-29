@@ -1,4 +1,4 @@
-import { ADD_NEW_ITEM, TOGGLE_COMPLETED } from '../actions';
+import { ADD_NEW_ITEM, TOGGLE_COMPLETED, DELETE_ITEM } from '../actions';
 
 const initialState = {
     todos: []
@@ -25,6 +25,9 @@ const reducer = (state = initialState, action) => {
             : todo
             )
         }
+        case DELETE_ITEM:
+        return {todos: state.todos.filter(todo => todo.index !== action.index)}
+
         default:
         return state;
     }
