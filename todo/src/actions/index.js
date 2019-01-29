@@ -1,7 +1,8 @@
 export const ADD_NEW_ITEM = 'ADD_NEW_ITEM';
 
-export const addNewItem = () => {
+export function addNewTodo(newTodo){
     return{
-        type: ADD_NEW_ITEM
+        type: ADD_NEW_ITEM,
+        payload: newTodo
     }
 }
